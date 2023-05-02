@@ -22,85 +22,85 @@ WHERE amount > 3.99 AND amount < 5.99;
 SELECT film_id, COUNT(film_id)
 FROM inventory 
 GROUP BY film_id
-ORDER BY COUNT(film_id) DESC;
+ORDER BY COUNT(film_id) DESC, film_id DESC;
 
 --ANSWER:
 /* There are 8 copies each of the following Film ID's:
-193
-789
-730
-378
-595
-849
-231
-586
-69
-764
-745
-1
-767
-369
-738
-638
-31
-356
-199
-683
-127
-609
-403
-174
-266
-109
-434
-220
-239
-873
-893
-468
-525
-897
-697
-835
-773
-945
-444
-412
-880
-846
-331
-911
-621
-301
 1000
-361
-91
-200
-358
 973
-350
-559
-86
-489
-382
-702
-531
-856
+945
+911
+897
+893
+880
+873
 870
-295
-206
-73
-418
-460
-103
-341
-748
-500
+856
+849
+846
+835
+789
+773
+767
+764
 753
+748
+745
+738
+730
+702
+697
+683
+638
+621
+609
+595
+586
 572
+559
+531
+525
+500
+489
+468
+460
+444
+434
+418
+412
+403
+382
+378
+369
+361
+358
+356
+350
+341
+331
+301
+295
+266
+239
+231
+220
+206
+200
+199
+193
+174
+127
+109
+103
+91
+86
+73
+69
+31
+1
 */
 
---4. How many customers have the last name ‘William’?
+-- 4. How many customers have the last name ‘William’?
 
 -- QUERY:
 SELECT COUNT(*)
@@ -109,7 +109,7 @@ WHERE last_name = 'William';
 -- ANSWER:
 -- There is no customer with the last name William.
 
---5. What store employee (get the id) sold the most rentals?
+-- 5. What store employee (get the id) sold the most rentals?
 
 -- QUERY:
 SELECT staff_id, COUNT(staff_id)
@@ -118,7 +118,7 @@ GROUP BY staff_id;
 -- ANSWER:
 -- Staff ID: 1 (Mike) sold 8,040 rentals.
 
---6. How many different district names are there?
+-- 6. How many different district names are there?
 
 -- QUERY:
 SELECT COUNT(district)
@@ -126,7 +126,7 @@ FROM address;
 -- ANSWER:
 -- 603 Districts
 
---7. What film has the most actors in it? (use film_actor table and get film_id)
+-- 7. What film has the most actors in it? (use film_actor table and get film_id)
 
 -- QUERY:
 SELECT film_id, COUNT(actor_id)
@@ -136,7 +136,7 @@ ORDER BY COUNT(actor_id) DESC;
 -- ANSWER:
 -- Film ID 508 has 15 and the most actors in a film.
 
---8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table)
+-- 8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table)
 
 -- QUERY:
 SELECT last_name, store_id, COUNT(customer_id)
@@ -160,8 +160,8 @@ Reyes
 Barnes 
 */
 
---9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 for customers
---with ids between 380 and 430? (use group by and having > 250
+-- 9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 for customers
+-- with ids between 380 and 430? (use group by and having > 250
 
 -- QUERY:
 SELECT amount, COUNT(amount)
@@ -172,8 +172,8 @@ HAVING COUNT(amount) > 250;
 -- ANSWER:
 -- Three payment amounts (2.99, 4.99 and 0.99) had more than 250 rentals from customer_ids between 380 and 430.
 
---10. Within the film table, how many rating categories are there? And what rating has the most
---movies total?
+-- 10. Within the film table, how many rating categories are there? And what rating has the most
+-- movies total?
 
 -- QUERY:
 SELECT rating, COUNT(rating)
