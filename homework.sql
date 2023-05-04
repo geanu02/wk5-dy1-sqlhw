@@ -121,7 +121,7 @@ GROUP BY staff_id;
 -- 6. How many different district names are there?
 
 -- QUERY:
-SELECT COUNT(district)
+SELECT DISTINCT district
 FROM address;
 -- ANSWER:
 -- 603 Districts
